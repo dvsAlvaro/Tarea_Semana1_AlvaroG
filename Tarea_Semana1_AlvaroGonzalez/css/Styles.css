@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FDFAFA;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: visible;
+    min-height: 100vh; 
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 120%;
+    background-image: url('../imgs/BernabeuBackground2.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.grid {
+    display: grid;
+    width: 100%;
+    gap: 5%;
+    min-height: 100vh; 
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+        "header menu menu menu"
+        "hero hero hero hero"
+        "hero hero hero hero"
+        "main main image image"
+        "main main extra extra"
+        "banner banner banner banner";
+    position: relative;
+    z-index: 1;
+}
+
+.grid > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 700 45px "Inter", sans-serif;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.header { 
+    grid-area: header; 
+    background-color: rgba(182, 185, 155, 0.8); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+.header .logo {
+    max-height: 200px;
+    height: auto;
+    width: auto;
+}
+
+.menu { 
+    grid-area: menu; 
+    background-color: rgba(139, 69, 19, 0.8);
+    font-size: 20px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu ul li {
+    margin: 5px 0;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero { grid-area: hero; background-color: rgba(97, 106, 212, 0.8); color: azure;}
+.main { grid-area: main; background-color: rgba(202, 202, 153, 0.8); font-size: 20px; color: rgb(88, 95, 69);}
+.banner { grid-area: banner; background-color: rgba(127, 255, 212, 0.8); font-size: 24px; color: rgb(12, 121, 88);}
+.extra { grid-area: extra; background-color: rgba(127, 255, 0, 0.8); font-size: 18px; color: #367c38;}
+.image { grid-area: image; background-color: rgba(138, 43, 226, 0.8); }
+.image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.extra form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.extra form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.extra form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.extra form input[type="text"],
+.extra form input[type="email"],
+.extra form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.extra form textarea {
+    height: 100px;
+}
+
+.extra form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.extra form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 850px) {
+    .grid {
+        grid-template-areas: 
+        "header header header header"
+        "hero hero hero hero"
+        "menu main main main"
+        "menu main main main"
+        "menu banner banner banner"
+        "menu extra image image";
+    }
+}
+
+@media (max-width: 550px) {
+    .grid {
+        grid-template-areas: 
+        "header header header header"
+        "hero hero hero hero"
+        "main main main main"
+        "main main main main"
+        "banner banner banner"
+        "extra extra extra extra";
+    }
+}
